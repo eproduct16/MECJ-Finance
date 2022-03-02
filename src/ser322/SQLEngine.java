@@ -65,6 +65,18 @@ public class SQLEngine {
      * inserts into the database.  Is generic by getting metadata
      */
     public ResultSet insert(String table, String[] values) {
+        return null;
+    }
+
+    //todo: write function
+    public ResultSet update() {
+        String depositStmt = "UPDATE EXPENSE SET Description = 'Gas' WHERE Title = 'Shell'";
+        stmt.executeUpdate(insertStmt);
+
+    }
+
+    //todo: write function
+    public ResultSet select() {
         selectStmt = connection.createStatement();
         ResultSet rs = selectStmt.executeQuery("SELECT Title FROM BILL b, EXPENSE e WHERE Duedate = '2022-01-01 12:00:00'AND b.Userid=e.Userid");
         while(rs.next()){
@@ -84,19 +96,6 @@ public class SQLEngine {
         while(rs.next()){
             System.out.print(rs.getString(1) + "\t");
         }
-    }
-
-    //todo: write function
-    public ResultSet update() {
-        String depositStmt = "UPDATE EXPENSE SET Description = 'Gas' WHERE Title = 'Shell'";
-        stmt.executeUpdate(insertStmt);
-
-    }
-
-    //todo: write function
-    public ResultSet select() {
-        //todo: return actual value
-        return null;
 
     }
 
