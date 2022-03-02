@@ -65,8 +65,25 @@ public class SQLEngine {
      * inserts into the database.  Is generic by getting metadata
      */
     public ResultSet insert(String table, String[] values) {
-        //todo: return actual value
-        return null;
+        selectStmt = connection.createStatement();
+        ResultSet rs = selectStmt.executeQuery("SELECT Title FROM BILL b, EXPENSE e WHERE Duedate = '2022-01-01 12:00:00'AND b.Userid=e.Userid");
+        while(rs.next()){
+            System.out.print(rs.getString(1) + "\t");
+        }
+        ResultSet rs = selectStmt.executeQuery("SELECT Totalamount, Currentamount, Description FROM GOAL g, EXPENSE e WHERE Category = 1 AND g.UserId = e.UserId");
+        while(rs.next()){
+            System.out.print(rs.getInt(1) + "\t");
+            System.out.print(rs.getInt(2) + "\t");
+        }
+        ResultSet rs = selectStmt.executeQuery("SELECT Description FROM EXPENSE WHERE Title = 'Shell' OR Title = 'Grocery Store'");
+        while(rs.next()){
+            System.out.print(rs.getInt(1) + "\t");
+            System.out.print(rs.getInt(2) + "\t");
+        }
+        ResultSet rs = selectStmt.executeQuery("SELECT Description FROM EXPENSE WHERE Amount BETWEEN 100 AND 200");
+        while(rs.next()){
+            System.out.print(rs.getString(1) + "\t");
+        }
     }
 
     //todo: write function
