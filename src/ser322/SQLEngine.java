@@ -71,8 +71,8 @@ public class SQLEngine {
 
     //todo: write function
     public ResultSet update() {
-        //todo: return actual value
-        return null;
+        String depositStmt = "UPDATE EXPENSE SET Description = 'Gas' WHERE Title = 'Shell'";
+        stmt.executeUpdate(insertStmt);
 
     }
 
